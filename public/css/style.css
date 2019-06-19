@@ -1,20 +1,21 @@
 body{
-    /*background-color: #e1a970;*/
-    background-color: #617069;
-
+    width: 100vw;
+    height: 100vh;
 }
-
-.bgImageWelcome{
-    background-image: url(../images/bg_relax.jpg);
+.body_welcome{
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/bg_relax.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center 80%;
-    width: 100vw;
-    height: 75vh;
 }
-.test{
-    width: 100vw;
-    height: 100vh;
-    background-color: #fff;
+nav{
+    background-color: #6680aa;
+}
+body #app .container a{
+    color: #F7DFAD;
+    /*color: #b3b5a3;*/
+}
+h1{
+    color: #91BDA8;
 }
