@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function mainHiking(){
-        return view('mainHiking', array('user' => Auth::user()));
+    public function hiking(){
+        return view('hiking', array('user' => Auth::user()));
     }
 }

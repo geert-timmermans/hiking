@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hiking', 'UserController@mainHiking')->name('hiking');
+Route::get('/hiking', 'UserController@hiking')->name('hiking');
