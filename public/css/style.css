@@ -1,0 +1,20 @@
+body{
+    /*background-color: #e1a970;*/
+    background-color: #617069;
+
+}
+
+.bgImageWelcome{
+    background-image: url(../images/bg_relax.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center 80%;
+    width: 100vw;
+    height: 75vh;
+}
+.test{
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+}

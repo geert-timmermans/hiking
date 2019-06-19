@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a921fbda-3ec0-4a6b-81aa-082b7b7cca37" name="hiking" url="http://136.144.221.129">
+        <fileTransfer host="136.144.221.129" port="22" rootFolder="/var/www/vhosts/hiking.geert-timmermans.be/httpdocs" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
