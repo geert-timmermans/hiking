@@ -19,4 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hiking', 'UserController@hiking')->name('hiking');
+Route::get('/hikes', 'UserController@hikes')->name('hikes');
+
+
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/createHike', 'UserController@createHike')->name('createHike');
+    Route::get('/editHike', 'UserController@editHike')->name('editHike');
+    Route::get('/editProfile', 'UserController@editHike')->name('editProfile');
+});

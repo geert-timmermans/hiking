@@ -12,7 +12,7 @@ body{
 nav{
     background-color: #6680aa;
 }
-body #app .container a{
+body #app nav .container a{
     color: #F7DFAD;
     /*color: #b3b5a3;*/
 }
