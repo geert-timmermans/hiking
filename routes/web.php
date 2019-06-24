@@ -19,8 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hikes', 'UserController@hikes')->name('hikes');
-
+Route::get('/hikes', 'HikeController@index')->name('hikes');
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/createHike', 'UserController@createHike')->name('createHike');

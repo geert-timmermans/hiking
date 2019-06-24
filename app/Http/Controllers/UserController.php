@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Hike;
 
 class UserController extends Controller
 {
-    public function hikes(){
-        return view('hikes');
+    public function index(){
+        //
     }
 
     public function createHike(){
