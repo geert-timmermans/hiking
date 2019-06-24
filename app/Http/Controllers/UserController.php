@@ -13,10 +13,6 @@ class UserController extends Controller
         //
     }
 
-    public function createHike(){
-        return view('createHike', array('user' => Auth::user()));
-    }
-
     public function editHike(){
         return view('editDeleteHike', array('user' => Auth::user()));
     }

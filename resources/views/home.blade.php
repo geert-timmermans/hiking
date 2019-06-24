@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-2 d-flex justify-content-center my-3"><a href="{{ route('hikes') }}" class="btn btn-info col-md-5">List Hikes</a></div>
-        <div class="col-md-4 d-flex justify-content-center my-3"><a href="#" class="btn btn-info col-md-5">Add Hike</a></div>
+        <div class="col-md-4 d-flex justify-content-center my-3"><a href="{{ route('createHike') }}" class="btn btn-info col-md-5">Add Hike</a></div>
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-2 d-flex justify-content-center"><a href="#" class="btn btn-info col-md-5">Edit Hike</a></div>

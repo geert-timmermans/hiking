@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hike;
+use Illuminate\Support\Facades\Auth;
 
 class HikeController extends Controller
 {
@@ -34,16 +35,20 @@ class HikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function createHike(){
+        return view('createHike', array('user' => Auth::user()));
+    }
     public function store(Request $request)
     {
         $validateData = $request->validate([
             'duration' => 'required',
-            'distance' => 'required | max:5',
-            'avg_speed' => 'required | max:4',
-            'kcal' => 'required | integer | max:6',
-            'steps' => 'required | integer | max:5',
-            'week' => 'required | integer | max:2',
-            'month' => 'required | integer | max:2',
+            'distance' => 'required',
+            'avg_speed' => 'required',
+            'kcal' => 'required',
+            'steps' => 'required',
+            'week' => 'required',
+            'month' => 'required',
             'date' => 'required',
         ]);
         $hike = Hike::create($validateData);
