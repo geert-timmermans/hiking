@@ -36,9 +36,20 @@ class HikeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validateData = $request->validate([
+            'duration' => 'required',
+            'distance' => 'required | max:5',
+            'avg_speed' => 'required | max:4',
+            'kcal' => 'required | integer | max:6',
+            'steps' => 'required | integer | max:5',
+            'week' => 'required | integer | max:2',
+            'month' => 'required | integer | max:2',
+            'date' => 'required',
+        ]);
+        $hike = Hike::create($validateData);
 
+        return redirect('/hikes')->with('success', 'Hike has been added');
+    }
     /**
      * Display the specified resource.
      *
