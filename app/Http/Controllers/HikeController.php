@@ -43,7 +43,7 @@ class HikeController extends Controller
             'distance' => 'required | numeric',
             'avg_speed' => 'required | numeric',
             'kcal' => 'required | numeric',
-            'steps' => 'required | numeric',
+            'steps' => 'required',
             'week' => 'required | numeric',
             'month' => 'required | numeric',
             'date' => 'required',
@@ -90,7 +90,7 @@ class HikeController extends Controller
             'distance' => 'required | numeric',
             'avg_speed' => 'required | numeric',
             'kcal' => 'required | numeric',
-            'steps' => 'required | numeric',
+            'steps' => 'required',
             'week' => 'required | numeric',
             'month' => 'required | numeric',
             'date' => 'required',
@@ -108,6 +108,7 @@ class HikeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Hike::findOrFail($id)->delete();
+        return redirect('/hikes')->with('success', 'Hike is successfully deleted');
     }
 }

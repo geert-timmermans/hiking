@@ -19,10 +19,10 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('hikes.edit', $hike->id) }}" method="post" class="d-flex flex-column align-items-center">
+            <form action="{{ route('editHikePost', $hike->id) }}" method="post" class="d-flex flex-column align-items-center">
                 <div class="row">
                     @csrf
-                    @method('PATCH')
+{{--                    @method('PATCH')--}}
                     <div class="form-group col-10 offset-1 col-md-4 offset-md-1">
                         <label for="duration">Duration:</label>
                         <input type="text" class="form-control" id="duration" name="duration" value="{{ $hike->duration }}" maxlength="8">
@@ -58,9 +58,13 @@
                 </div>
                 <button class="btn btn-primary">Update Hike</button>
             </form>
+                <form method="post" action="{{ route('deleteHike', $hike->id) }}" class="d-flex justify-content-center my-3">
+{{--                    @method('DELETE')--}}
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Delete Hike</button>
+                </form>
         </div>
-
-
     </div>
+
 
 @endsection

@@ -22,13 +22,17 @@
         <tbody id="hikeTable">
             @foreach($hikes as $hike)
                 <tr>
-                    <td>{{ $hike->duration }}</td>
-                    <td>{{ $hike->distance }}</td>
-                    <td>{{ $hike->avg_speed }}</td>
-                    <td>{{ $hike->kcal }}</td>
-                    <td>{{ $hike->steps }}</td>
-                    <td>{{ $hike->week }}</td>
-                    <td>{{ $hike->month }}</td>
+                    @auth
+                        <td><a href="{{ route('editHike', $hike->id) }}">{{ $hike->duration }}</a></td>
+                    @else
+                        <td>{{ $hike->duration }}</td>
+                    @endauth
+                        <td>{{ $hike->distance }}</td>
+                        <td>{{ $hike->avg_speed }}</td>
+                        <td>{{ $hike->kcal }}</td>
+                        <td>{{ $hike->steps }}</td>
+                        <td>{{ $hike->week }}</td>
+                        <td>{{ $hike->month }}</td>
                 </tr>
             @endforeach
         </tbody>
