@@ -21,12 +21,14 @@
         </thead>
         <tbody id="hikeTable">
             @foreach($hikes as $hike)
-                <tr>
                     @auth
-                        <td><a href="{{ route('editHike', $hike->id) }}">{{ $hike->duration }}</a></td>
+{{--                        <td><a href="{{ route('editHike', $hike->id) }}">{{ $hike->duration }}</a></td>--}}
+                <tr class="clickable-row" data-href="{{ route('editHike', $hike->id) }}">
+
                     @else
-                        <td>{{ $hike->duration }}</td>
+                <tr>
                     @endauth
+                        <td>{{ $hike->duration }}</td>
                         <td>{{ $hike->distance }}</td>
                         <td>{{ $hike->avg_speed }}</td>
                         <td>{{ $hike->kcal }}</td>
@@ -47,5 +49,14 @@
                 });
             });
         });
+    </script>
+{{--    script for clickable row in table--}}
+    <script>
+        $(document).ready(function () {
+           $(".clickable-row").click(function () {
+              window.document.location = $(this).data("href");
+           });
+        });
+
     </script>
 @endsection

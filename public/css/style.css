@@ -19,3 +19,7 @@ body #app nav .container a{
 h1{
     color: #91BDA8;
 }
+
+.clickable-row{
+    cursor:pointer;
+}
