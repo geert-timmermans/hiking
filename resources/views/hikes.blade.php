@@ -5,7 +5,23 @@
 
 @section('content')
     <br>
-    <input class="form-control col-6 offset-3" id="searchInput" type="text" placeholder="Search..">
+    <form action="" class="input-group">
+        <input type="search" class="form-control col-md-1 offset-md-4" id="searchMin" name="search" placeholder="Min.." maxlength="8">
+        <input type="search" class="form-control col-md-1" id="searchMax" name="search" placeholder="Max..." maxlength="8">
+        <select id="inputGroupSelect04" class="custom-select col-md-1">
+            <option selected>Choose...</option>
+            <option value="1">Duration</option>
+            <option value="2">Distance</option>
+            <option value="3">Avg Speed</option>
+            <option value="4">Kcal</option>
+            <option value="5">Steps</option>
+            <option value="6">Week</option>
+            <option value="7">Month</option>
+        </select>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
     <br>
     <table class="table table-sm table-striped">
         <thead>
@@ -40,16 +56,22 @@
         </tbody>
     </table>
 
-    <script>
-        $(document).ready(function(){
-            $("#searchInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#hikeTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+{{--    script for choosing how many search result on the page--}}
+
+{{--    script for pagination--}}
+
+{{--    script for searchbar--}}
+{{--    <script>--}}
+{{--        $(document).ready(function(){--}}
+{{--            $("#searchInput").on("keyup", function() {--}}
+{{--                var value = $(this).val().toLowerCase();--}}
+{{--                $("#hikeTable tr").filter(function() {--}}
+{{--                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)--}}
+{{--                });--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+
 {{--    script for clickable row in table--}}
     <script>
         $(document).ready(function () {
@@ -57,6 +79,5 @@
               window.document.location = $(this).data("href");
            });
         });
-
     </script>
 @endsection
