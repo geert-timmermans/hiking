@@ -13,14 +13,10 @@ class UserController extends Controller
         //
     }
 
-    public function editHike(){
-        return view('editDeleteHike', array('user' => Auth::user()));
-    }
-
-    public function editProfile(){
+    public function edit(){
         return view('editProfile', array('user' => Auth::user()));
     }
-    public function editProfilePost(Request $request){
+    public function update(Request $request){
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],

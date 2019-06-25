@@ -7,7 +7,7 @@
     <br>
     <input class="form-control col-6 offset-3" id="searchInput" type="text" placeholder="Search..">
     <br>
-    <table class="table table-striped">
+    <table class="table table-sm table-striped">
         <thead>
             <tr>
                 <td>Duration</td>

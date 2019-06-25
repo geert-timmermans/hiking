@@ -15,7 +15,8 @@ class HikeController extends Controller
      */
     public function index()
     {
-        $hikes = hike::all();
+//        display all hikes and order by id
+        $hikes = Hike::orderBy('id', 'desc')->get();
         return view('hikes', compact('hikes'));
     }
 
@@ -26,7 +27,7 @@ class HikeController extends Controller
      */
     public function create()
     {
-        //
+        return view('createHike');
     }
 
     /**
@@ -35,20 +36,16 @@ class HikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    public function createHike(){
-        return view('createHike', array('user' => Auth::user()));
-    }
     public function store(Request $request)
     {
         $validateData = $request->validate([
             'duration' => 'required',
-            'distance' => 'required',
-            'avg_speed' => 'required',
-            'kcal' => 'required',
-            'steps' => 'required',
-            'week' => 'required',
-            'month' => 'required',
+            'distance' => 'required | numeric',
+            'avg_speed' => 'required | numeric',
+            'kcal' => 'required | numeric',
+            'steps' => 'required | numeric',
+            'week' => 'required | numeric',
+            'month' => 'required | numeric',
             'date' => 'required',
         ]);
         $hike = Hike::create($validateData);
@@ -74,7 +71,9 @@ class HikeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hike = Hike::findOrFail($id);
+
+        return view ('editHike', compact('hike'));
     }
 
     /**
@@ -86,7 +85,19 @@ class HikeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'duration' => 'required',
+            'distance' => 'required | numeric',
+            'avg_speed' => 'required | numeric',
+            'kcal' => 'required | numeric',
+            'steps' => 'required | numeric',
+            'week' => 'required | numeric',
+            'month' => 'required | numeric',
+            'date' => 'required',
+        ]);
+        Hike::whereId($id)->update($validateData);
+
+        return redirect('/hikes')->with('success', 'Hike is successfully updated');
     }
 
     /**

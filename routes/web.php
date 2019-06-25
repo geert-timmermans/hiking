@@ -22,9 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hikes', 'HikeController@index')->name('hikes');
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/createHike', 'HikeController@createHike')->name('createHike');
+    Route::get('/editHike/{id}', 'HikeController@edit')->name('editHike');
+    Route::post('/editHike', 'HikeController@update')->name('editHikePost');
+    Route::get('/editProfile', 'UserController@edit')->name('editProfile');
+    Route::post('/editProfile', 'UserController@update')->name('editProfilePost');
+    Route::get('/createHike', 'HikeController@create')->name('createHike');
     Route::post('/createHike', 'HikeController@store')->name('createHikePost');
-    Route::get('/editHike', 'UserController@editHike')->name('editHike');
-    Route::get('/editProfile', 'UserController@editProfile')->name('editProfile');
-    Route::post('/editProfile', 'UserController@editProfilePost')->name('editProfilePost');
+
 });
