@@ -8,9 +8,9 @@
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
                 <form action="" class="input-group">
-                    <input type="number" class="form-control col-3 col-md-3" id="searchMin" name="search" placeholder="Min.." maxlength="8">
-                    <input type="number" class="form-control col-3 col-md-3" id="searchMax" name="search" placeholder="Max.." maxlength="8">
-                    <select id="inputGroupSelect04" class="custom-select col-4 col-md-4">
+                    <input type="text" class="form-control col-3 col-md-3" id="searchMin" name="search" placeholder="Min.." maxlength="8">
+                    <input type="text" class="form-control col-3 col-md-3" id="searchMax" name="search" placeholder="Max.." maxlength="8">
+                    <select id="inputGroupSelect04" class="custom-select col-3 col-md-4">
                         <option selected>Choose..</option>
                         <option value="1">Duration</option>
                         <option value="2">Distance</option>
@@ -26,7 +26,7 @@
                 </form>
             </div>
         </div>
-        <div class="row">
+        <div class="row divDesktop">
             <div class="col-md-12 d-flex justify-content-center">
                 {{ $hikes->links() }}
             </div>
@@ -113,7 +113,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3 mb-md-0">
             <div class="col-md-3 paginationText">
                 Results on page:
                 <a href="#" class="paginationLinks paginationLinksBorder">25</a>
@@ -128,7 +128,7 @@
                 {{--                    </select>--}}
                 {{--                </form>--}}
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">
                 {{ $hikes->links() }}
             </div>
         </div>
