@@ -1,9 +1,9 @@
 /* media query small screens (gsm)*/
 @media screen and (max-width: 767px) {
-    .body_welcome, .body_login{
+    .body_welcome, .body_login, .body_register{
         background-position: 35% 0;
     }
-    .body_hikes, .body_editHike{
+    .body_hikes, .body_editHike, .body_createHike{
         background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/bg_mountain_mobile.jpg");
         -webkit-background-size: cover;
         background-size: cover;
@@ -19,12 +19,12 @@
 
 /* media query bigger screens (land scape gsm, tablet, laptop, ... */
 @media only screen and (min-width: 768px) {
-    .body_welcome, .body_login{
+    .body_welcome, .body_login, .body_register{
         -webkit-background-size: cover;
         background-size: cover;
         background-position: center 80%;
     }
-    .body_hikes, .body_editHike{
+    .body_hikes, .body_editHike, .body_createHike{
          -webkit-background-size: cover;
          background-size: cover;
      }
@@ -40,5 +40,10 @@
     .tableWidthSmall{
         width: 10%;
     }
-
+    .btnBackCreate{
+        order: 2;
+    }
+    .btnCreateHike{
+        order: 1;
+    }
 }

@@ -4,7 +4,7 @@
 @section('body_class', 'body_login')
 
 @section('content')
-<div class="container-fluid ">
+<div class="container-fluid">
     <div class="row heightLogin d-flex justify-content-center align-items-center">
         <div class="col-12 col-md-4">
             <div class="card bg-dark text-white">

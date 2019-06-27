@@ -23,7 +23,6 @@
                 <form action="{{ route('editHikePost', $hike->id) }}" method="post" class="d-flex flex-column align-items-center">
                     <div class="row">
                         @csrf
-    {{--                    @method('PATCH')--}}
                         <div class="form-group col-10 offset-1 col-md-5 offset-md-1">
                             <label for="duration">Duration:</label>
                             <input type="text" class="form-control" id="duration" name="duration" value="{{ $hike->duration }}" maxlength="8">

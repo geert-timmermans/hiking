@@ -49,6 +49,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+{{--                        Register disabled in auth::routes--}}
+{{--                        vendor\laravel\framework\src\Illuminate\Routing\Router.php--}}
+{{--                        1157 tem 1160--}}
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
