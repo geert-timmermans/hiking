@@ -20,16 +20,13 @@
                         <option value="6">Week</option>
                         <option value="7">Month</option>
                     </select>
-                    <div class="input-group-append col-2 col-md-3 p-0">
+                    <div class="input-group-append col-3 col-md-3 p-0">
                         <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row divDesktop">
-            <div class="col-md-12 d-flex justify-content-center">
-                {{ $hikes->links() }}
-            </div>
             <div class="col-md-3 paginationText mb-2">
                 Results on page:
                 <a href="#" class="paginationLinks paginationLinksBorder">25</a>
