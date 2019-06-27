@@ -1,4 +1,5 @@
 # Laravel Project for keeping track of my walks  
+[Website](http://hiking.geert-timmmermans.be)
 ## Functions:
 - display all walks
 - add new walks

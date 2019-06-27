@@ -2,7 +2,7 @@ body{
     width: 100%;
     height: 100vh;
 }
-.body_welcome{
+.body_welcome, .body_login{
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/bg_relax.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -51,4 +51,9 @@ main{
 
 .divDesktop, .divMobile{
     display: none;
+}
+
+.test{
+    opacity: 0.9;
+    height: 90vh;
 }
