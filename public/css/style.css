@@ -13,6 +13,10 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.body_editProfile{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/bg_mountain_editProfile.jpg);
+    background-repeat: no-repeat;
+}
 nav{
     background-color: #6680aa;
 }
