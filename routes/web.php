@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/hikes', 'HikeController@index')->name('hikes');
+//Route::get('/hikes{number}', 'HikeController@pagination')->name('pagination');
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/editProfile', 'UserController@edit')->name('editProfile');
@@ -31,5 +32,5 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/editHike/hike{id}', 'HikeController@edit')->name('editHike');
     Route::post('/editHike/{id}', 'HikeController@update')->name('editHikePost');
 
-    Route::post('/createHike/{id}', 'HikeController@destroy')->name('deleteHike');
+    Route::get('/createHike/{id}', 'HikeController@destroy')->name('deleteHike');
 });

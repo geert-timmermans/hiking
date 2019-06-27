@@ -1,0 +1,44 @@
+/* media query small screens (gsm)*/
+@media screen and (max-width: 767px) {
+    .body_welcome{
+        background-position: 35% 0;
+    }
+    .body_hikes, .body_editHike{
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/bg_mountain_mobile.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+    }
+    .btnDesktop{
+        display: none;
+    }
+    .btnMobile{
+        display: block;
+    }
+}
+
+/* media query bigger screens (land scape gsm, tablet, laptop, ... */
+@media only screen and (min-width: 768px) {
+    .body_welcome{
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center 80%;
+    }
+    .body_hikes, .body_editHike{
+         -webkit-background-size: cover;
+         background-size: cover;
+     }
+    .btnDesktop{
+        display: block;
+    }
+    .btnMobile{
+        display: none;
+    }
+    .tableWidthBig{
+        width: 20%;
+    }
+    .tableWidthSmall{
+        width: 10%;
+    }
+
+}

@@ -15,10 +15,17 @@ class HikeController extends Controller
      */
     public function index()
     {
-//        display all hikes and order by id
-        $hikes = Hike::orderBy('id', 'desc')->get();
+        //if statement for display all
+        $hikes = Hike::orderBy('id', 'desc')->paginate(15);
         return view('hikes', compact('hikes'));
     }
+
+//    public function pagination($number)
+//    {
+//        $hikes = Hike::orderBy('id', 'desc')->paginate(10);
+////        return view('hikes', compact('hikes'));
+//        return view('hikes', compact('hikes'));
+//    }
 
     /**
      * Show the form for creating a new resource.
