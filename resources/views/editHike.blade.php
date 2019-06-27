@@ -57,14 +57,18 @@
                             <input type="date" class="form-control" id="date" name="date" value="{{ $hike->date }}">
                         </div>
                     </div>
-                    <div class="container my-3 btnDesktop">
+
+{{--                    buttons for desktop--}}
+                    <div class="container my-3 divDesktop">
                         <div class="row d-flex justify-content-around">
                             <a href="{{ route('deleteHike', $hike->id) }}" class="btn btn-outline-danger text-white col-md-2">Delete</a>
                             <button class="btn btn-outline-success text-white col-md-2">Update</button>
                             <a href="{{ route('hikes') }}" class="btn btn-outline-primary text-white col-md-2">Back</a>
                         </div>
                     </div>
-                    <div class="container my-2 btnMobile">
+
+{{--                    buttons for mobile--}}
+                    <div class="container my-2 divMobile">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-around">
                                 <a href="{{ route('deleteHike', $hike->id) }}" class="btn btn-outline-danger text-white col-5">Delete</a>
