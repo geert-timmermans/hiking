@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container-fluid ">
-    <div class="row test d-flex justify-content-center align-items-center">
+    <div class="row heightLogin d-flex justify-content-center align-items-center">
         <div class="col-12 col-md-4">
             <div class="card bg-dark text-white">
                 <div class="card-header cardHeadBg text-center">{{ __('Login') }}</div>
