@@ -7,10 +7,10 @@
     <div class="container mt-mb-4">
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
-                <form action="" class="input-group">
-                    <input type="text" class="form-control col-3 col-md-3" id="searchMin" name="search" placeholder="Min.." maxlength="8">
-                    <input type="text" class="form-control col-3 col-md-3" id="searchMax" name="search" placeholder="Max.." maxlength="8">
-                    <select id="inputGroupSelect04" class="custom-select col-3 col-md-4">
+                <form action="" class="input-group d-flex justify-content-center">
+                    <input type="text" class="form-control col-2 col-md-3" id="searchMin" name="search" placeholder="Min.." maxlength="8">
+                    <input type="text" class="form-control col-2 col-md-3" id="searchMax" name="search" placeholder="Max.." maxlength="8">
+                    <select id="inputGroupSelect04" class="custom-select col-4 col-md-4">
                         <option selected>Choose..</option>
                         <option value="1">Duration</option>
                         <option value="2">Distance</option>
@@ -20,7 +20,7 @@
                         <option value="6">Week</option>
                         <option value="7">Month</option>
                     </select>
-                    <div class="input-group-append col-3 col-md-3 p-0">
+                    <div class="input-group-append col-2 col-md-3 p-0">
                         <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
@@ -48,37 +48,6 @@
         <div class="row">
 
 {{--            table for desktop--}}
-            <div class="col-12 divMobile">
-                <table class="table table-sm table-bordered table-hover table-dark text-white text-center">
-                    <thead class="theadBg">
-                        <tr>
-                            <th>Duration</th>
-                            <th>Distance (km)</th>
-                            <th>Avg Speed (km/h)</th>
-                            <th>Kcal</th>
-                            <th>Steps</th>
-                        </tr>
-                    </thead>
-                    <tbody id="hikeTable" class="">
-                        @foreach($hikes as $hike)
-                                @auth
-                            <tr class="clickable-row" data-href="{{ route('editHike', $hike->id) }}">
-
-                                @else
-                            <tr>
-                                @endauth
-                                    <td>{{ $hike->duration }}</td>
-                                    <td>{{ $hike->distance }}</td>
-                                    <td>{{ $hike->avg_speed }}</td>
-                                    <td>{{ $hike->kcal }}</td>
-                                    <td>{{ $hike->steps }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-             </div>
-
-{{--            table for mobile--}}
             <div class="col-12 divDesktop">
                 <table class="table table-bordered table-hover table-dark text-white text-center">
                     <thead class="theadBg">
@@ -112,6 +81,37 @@
                     </tbody>
                 </table>
             </div>
+
+{{--            table for Mobile--}}
+            <div class="col-12 divMobile">
+                <table class="table table-sm table-bordered table-hover table-dark text-white text-center">
+                    <thead class="theadBg">
+                        <tr>
+                            <th>Duration</th>
+                            <th>Distance (km)</th>
+                            <th>Avg Speed (km/h)</th>
+                            <th>Kcal</th>
+                            <th>Steps</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hikeTable" class="">
+                        @foreach($hikes as $hike)
+                                @auth
+                            <tr class="clickable-row" data-href="{{ route('editHike', $hike->id) }}">
+
+                                @else
+                            <tr>
+                                @endauth
+                                    <td>{{ $hike->duration }}</td>
+                                    <td>{{ $hike->distance }}</td>
+                                    <td>{{ $hike->avg_speed }}</td>
+                                    <td>{{ $hike->kcal }}</td>
+                                    <td>{{ $hike->steps }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+             </div>
         </div>
         <div class="row mb-3 mb-md-0">
             <div class="col-md-3 paginationText">
