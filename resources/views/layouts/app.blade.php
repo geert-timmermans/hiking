@@ -135,9 +135,6 @@
                                 </div>
                             </li>
 
-{{--                        Register disabled in auth::routes--}}
-{{--                        vendor\laravel\framework\src\Illuminate\Routing\Router.php--}}
-{{--                        1157 tem 1160--}}
                             @if (Route::has('register'))
                                 <li class="nav-item">
 
