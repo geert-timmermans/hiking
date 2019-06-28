@@ -141,10 +141,10 @@
                             @if (Route::has('register'))
                                 <li class="nav-item">
 
-{{--                                trigger modal register--}}
+{{--                                trigger modal Register--}}
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal"> {{ __('Register') }}</a>
 
-{{--                                modal register--}}
+{{--                                modal Register--}}
                                     <div class="modal fade modalOpacity" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
