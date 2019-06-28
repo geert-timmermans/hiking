@@ -47,10 +47,10 @@
     .tableWidthSmall{
         width: 10%;
     }
-    .btnBackCreate{
+    .btnBackCreate, .btnBackEditProfile{
         order: 2;
     }
-    .btnCreateHike{
+    .btnCreateHike, .btnEditProfile{
         order: 1;
     }
 }

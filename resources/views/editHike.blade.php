@@ -74,7 +74,7 @@
                                 <button class="btn btn-outline-success text-white col-5">Update</button>
                             </div>
                             <div class="col-12 d-flex justify-content-center mt-3">
-                                <a href="{{ route('hikes') }}" class="btn btn-outline-primary text-white col-5">Back</a>
+                                <a href="{{ URL::previous() }}" class="btn btn-outline-primary text-white col-5">Back</a>
                             </div>
                         </div>
                     </div>

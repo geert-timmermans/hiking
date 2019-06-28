@@ -51,7 +51,11 @@
 {{--                                trigger modal login--}}
                                 <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"> {{ __('Login') }}</a>
 {{--                                modal login--}}
-                                <div class="modal fade modalOpacity" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+                                @if(Route::current()->getName() == 'hikes')
+                                    <div class="modal fade modalOpacityHikes" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+                                @else
+                                    <div class="modal fade modalOpacity" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+                                @endif
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header cardHeadBg text-white rounded-0">
@@ -142,7 +146,11 @@
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal"> {{ __('Register') }}</a>
 
 {{--                                modal Register--}}
-                                    <div class="modal fade modalOpacity" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+                                    @if(Route::current()->getName() == 'hikes')
+                                        <div class="modal fade modalOpacityHikes" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+                                    @else
+                                        <div class="modal fade modalOpacity" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+                                    @endif
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header cardHeadBg text-white rounded-0">

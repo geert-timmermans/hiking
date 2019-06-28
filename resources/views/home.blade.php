@@ -4,17 +4,26 @@
 @section('body_class', 'body_home')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1 class="mt-4 text-center">Welcome {{ Auth::user()->name }}</h1>
+    <div class="container">
+        <div class="d-flex">
+            <div class="container col-md-7 bg-secondary">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=""><a href="{{ route('hikes') }}" class="btn btn-info col-md-5">List Hikes</a></div>
+                        <div class=""><a href="{{ route('createHike') }}" class="btn btn-info col-md-5">Add Hike</a></div>
+                        <div class=""><a href="{{ route('editProfile') }}" class="btn btn-info col-md-5">Edit Profile</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container col-md-5 bg-warning">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="mt-4">Welcome {{ Auth::user()->firstName }}</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3 offset-md-2 d-flex justify-content-center my-3"><a href="{{ route('hikes') }}" class="btn btn-info col-md-5">List Hikes</a></div>
-        <div class="col-md-3 d-flex justify-content-center my-3"><a href="{{ route('createHike') }}" class="btn btn-info col-md-5">Add Hike</a></div>
-        <div class="col-md-3 d-flex justify-content-center my-3"><a href="{{ route('editProfile') }}" class="btn btn-info col-md-5">Edit Profile</a></div>
-    </div>
-</div>
-
 @endsection

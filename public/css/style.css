@@ -28,7 +28,10 @@ h1{
     color: #91BDA8;
 }
 .modalOpacity{
-    opacity: 0.65;
+    opacity: 0.6;
+}
+.modalOpacityHikes{
+    opacity: 0.85;
 }
 .theadBg, .cardHeadBg{
     background: #000;

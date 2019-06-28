@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-center my-3">
-                            <a href="{{ route('hikes') }}" class="btn btn-outline-primary col-5 col-md-2 offset-md-1 text-white btnBackCreate">Back</a>
+                            <a href="{{ URL::previous() }}" class="btn btn-outline-primary col-5 col-md-2 offset-md-1 text-white btnBackCreate">Back</a>
                             <button type="submit" class="btn btn-outline-success col-5 col-md-2 offset-1 offset-md-0 text-white btnCreateHike">Create Hike</button>
                         </div>
                     </form>
