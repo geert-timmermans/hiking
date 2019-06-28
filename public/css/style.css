@@ -27,6 +27,9 @@ body #app nav .container a{
 h1{
     color: #91BDA8;
 }
+.modalOpacity{
+    opacity: 0.65;
+}
 .theadBg, .cardHeadBg{
     background: #000;
 }
