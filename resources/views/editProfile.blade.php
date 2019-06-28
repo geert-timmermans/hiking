@@ -8,6 +8,21 @@
     <div class="row">
         <form class="form mt-4 col-10 offset-1 col-md-8 offset-md-2" action="" method="post" id="editProfileForm">
             @csrf
+
+            <div class="form-group">
+                <div class="col-md-6 offset-md-3">
+                    <h5>
+                        <label for="firstName">{{ __('First name') }}</label>
+                    </h5>
+                    <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" id="firstName" placeholder="firstName" title="enter your userfirstName" value="{{ $user->firstName }}" required autocomplete="firstName" autofocus>
+                    @error('firstName')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="col-md-6 offset-md-3">
                     <h5>
@@ -22,7 +37,21 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group">
+                <div class="col-md-6 offset-md-3">
+                    <h5>
+                        <label for="location">{{ __('Location') }}</label>
+                    </h5>
+                    <input type="text" class="form-control @error('location') is-invalid @enderror" name="location" id="location" title="enter your location." value="{{ $user->location }}" required autocomplete="location">
+                    @error('location')
+                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class="col-md-6 offset-md-3">
                     <h5>
                         <label for="email">{{ __('E-mail Address') }}</label>
@@ -35,7 +64,8 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group col-md-6">
+
+            <div class="form-group">
                 <div class="col-md-6 offset-md-3">
                     <h5>
                         <label for="password">{{ __('New password') }}</label>
@@ -48,7 +78,8 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group col-md-6">
+
+            <div class="form-group">
                 <div class="col-md-6 offset-md-3">
                     <h5>
                         <label for="confirmPasswd">{{ __('Confirm password') }}</label>
@@ -56,6 +87,7 @@
                     <input type="password" class="form-control" name="password_confirmation" id="confirmPasswd" placeholder="Confirm password" title="enter your password2">
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-12 d-flex justify-content-center my-3">
                     <br>
@@ -63,6 +95,7 @@
                     <button type="submit" class="btn btn-outline-success col-5 col-md-2 offset-1 offset-md-0 text-white btnEditProfile" name="submit">Save</button>
                 </div>
             </div>
+
         </form>
     </div>
 </div>

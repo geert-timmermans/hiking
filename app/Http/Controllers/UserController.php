@@ -16,15 +16,20 @@ class UserController extends Controller
     public function edit(){
         return view('editProfile', array('user' => Auth::user()));
     }
+
     public function update(Request $request){
         $validate = $request->validate([
+            'firstName' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
         ]);
 
         $user = User::find(Auth::user()->id);
         $user->email = $request->email;
         $user->name = $request->name;
+        $user->firstName = $request->firstName;
+        $user->location = $request->location;
 
         if($request->password){
             $validate = $request->validate([
