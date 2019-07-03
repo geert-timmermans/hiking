@@ -7,10 +7,10 @@
     <div class="container mt-mb-4">
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
-                <form action="" class="input-group d-flex justify-content-center">
+                <form action="{{ route('search') }}" method="post" class="input-group d-flex justify-content-center">
                     <input type="text" class="form-control col-2 col-md-3" id="searchMin" name="searchMin" placeholder="Min.." maxlength="8">
                     <input type="text" class="form-control col-2 col-md-3" id="searchMax" name="searchMax" placeholder="Max.." maxlength="8">
-                    <select id="inputGroupSelect04" class="custom-select col-4 col-md-4">
+                    <select id="inputGroupSelect04" class="custom-select col-4 col-md-4" name="dbColumns">
                         <option selected>Choose..</option>
                         <option value="1">Duration</option>
                         <option value="2">Distance</option>
@@ -21,7 +21,7 @@
                         <option value="7">Month</option>
                     </select>
                     <div class="input-group-append col-2 col-md-3 p-0">
-                        <button type="submit" class="btn btn-secondary">Search</button>
+                        <button type="submit" name="submitSearch" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
             </div>

@@ -118,4 +118,35 @@ class HikeController extends Controller
         Hike::findOrFail($id)->delete();
         return redirect('/hikes')->with('success', 'Hike is successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+//        $input = Request->all();
+//        $column = $request->input('test');
+//        $hikes = Hike::orderBy('id', 'desc')
+//            ->whereBetween($column, [4, 6])
+//            ->get();
+        if (isset($_POST['submitSearch'])) {
+            $column = $request->input('dbColumns');
+
+            switch($i)
+            {
+                case 0:
+                    
+                    break;
+            }
+
+//            $column = $request->input('dbColumns');
+
+            $min = $request->input('searchMin');
+            $max = $request->input('searchMax');
+
+            $result = Hike::where($column, '=', $column)->whereBetween($column, [$min, $max])->get();
+
+            return view('hikes', compact('result'));
+        }
+        else{
+            return view('hikes');
+        }
+    }
 }
