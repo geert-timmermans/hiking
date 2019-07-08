@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
+.textHome{
+    font-family: 'Acme', sans-serif;
+}
+
+
 body{
     width: 100%;
     height: 100vh;
 }
-.body_welcome, .body_login, .body_register{
+.body_welcome, .body_home{
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/bg_relax.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -23,9 +30,6 @@ nav{
 body #app nav .container a{
     color: #F7DFAD;
     /*color: #b3b5a3;*/
-}
-h1{
-    color: #91BDA8;
 }
 .modalOpacity{
     opacity: 0.6;
@@ -66,4 +70,8 @@ main{
 .heightLogin{
     opacity: 0.9;
     height: 70vh;
+}
+.ulHome{
+    font-size: 1.4em;
+    list-style-type: square;
 }
