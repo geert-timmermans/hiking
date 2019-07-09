@@ -117,6 +117,7 @@ class HikeController extends Controller
         $min = $_GET['searchMin'];
         $max = $_GET['searchMax'];
         $column = $_GET['searchCol'];
+        $message = '';
 
         if($min > $max){
             $min = $_GET['searchMax'];
