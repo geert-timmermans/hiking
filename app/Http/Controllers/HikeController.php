@@ -15,7 +15,6 @@ class HikeController extends Controller
      */
     public function index()
     {
-        //if statement for display all
         $hikes = Hike::orderBy('id', 'desc')->paginate(15);
         return view('hikes', compact('hikes'));
     }
@@ -113,8 +112,42 @@ class HikeController extends Controller
         return redirect('/hikes')->with('success', 'Hike is successfully deleted');
     }
 
-    public function search(Request $request)
+    public function search()
     {
-        //
+        $min = $_GET['searchMin'];
+        $max = $_GET['searchMax'];
+        $column = $_GET['searchCol'];
+
+        if($min > $max){
+            $min = $_GET['searchMax'];
+            $max = $_GET['searchMin'];
+        }
+
+        if($column !== 'Choose..') {
+            if (empty($min) && empty($max)){
+                $message = 'Fill in data to search';
+                $hikes = Hike::orderBy('id', 'desc')->paginate(15);
+            }
+            elseif (!empty($min) && !empty($max)) {
+                $hikes = Hike::whereBetween($column, [$min, $max])
+                    ->orderBy('id', 'desc')->get();
+            } elseif (empty($min) || empty($max)) {
+                if (empty($min)) {
+                    $min = $max;
+                    $hikes = Hike::where($column, '=', $min)
+                        ->orderBy('id', 'desc')->get();
+                } else {
+                    $max = $min;
+                    $hikes = Hike::where($column, '=', $max)
+                        ->orderBy('id', 'desc')->get();
+                }
+            }
+        }
+        else{
+            $message = 'Make a choice in the dropdown menu';
+            $hikes = Hike::orderBy('id', 'desc')->paginate(15);
+        }
+
+        return view('search', compact('hikes', 'message'));
     }
 }

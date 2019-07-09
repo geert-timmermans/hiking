@@ -20,7 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/hikes', 'HikeController@index')->name('hikes');
-Route::post('/hikes', 'HikeController@search')->name('search');
+
+Route::get('/hikes/search', 'HikeController@search')->name('search');
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/editProfile', 'UserController@edit')->name('editProfile');

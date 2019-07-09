@@ -15,7 +15,7 @@ body{
     -webkit-background-size: cover;
     background-attachment: fixed;
 }
-.body_hikes, .body_editHike, .body_createHike{
+.body_hikes, .body_search, .body_editHike, .body_createHike{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/bg_mountain.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
