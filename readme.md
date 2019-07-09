@@ -8,3 +8,4 @@
 - edit user info
 - Login / Register
 - When not logged in, only display hikes is possible
+- search walks

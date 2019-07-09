@@ -275,6 +275,9 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-dark" href="{{ route('hikes') }}">Hikes</a>
+                                    <a class="dropdown-item text-dark" href="{{ route('createHike') }}">Create hike</a>
+                                    <a class="dropdown-item text-dark" href="{{ route('home') }}">Dashboard</a>
+                                    <a class="dropdown-item text-dark" href="{{ route('editProfile') }}">Edit Profile</a>
                                     <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

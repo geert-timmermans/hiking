@@ -24,14 +24,14 @@ Route::get('/hikes', 'HikeController@index')->name('hikes');
 Route::get('/hikes/search', 'HikeController@search')->name('search');
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/editProfile', 'UserController@edit')->name('editProfile');
+    Route::get('/profile/edit', 'UserController@edit')->name('editProfile');
     Route::post('/editProfile', 'UserController@update')->name('editProfilePost');
 
-    Route::get('/createHike', 'HikeController@create')->name('createHike');
+    Route::get('/hike/create', 'HikeController@create')->name('createHike');
     Route::post('/createHike', 'HikeController@store')->name('createHikePost');
 
-    Route::get('/editHike/hike{id}', 'HikeController@edit')->name('editHike');
+    Route::get('/hike/edit/{id}', 'HikeController@edit')->name('editHike');
     Route::post('/editHike/{id}', 'HikeController@update')->name('editHikePost');
 
-    Route::get('/createHike/{id}', 'HikeController@destroy')->name('deleteHike');
+    Route::get('/hike/delete/{id}', 'HikeController@destroy')->name('deleteHike');
 });
