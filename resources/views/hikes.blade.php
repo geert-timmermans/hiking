@@ -7,7 +7,7 @@
     <div class="container mt-mb-4">
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
-                <form action="{{ route('search') }}" method="get" class="input-group d-flex justify-content-center">
+                <form action="{{ route('search') }}" method="post" class="input-group d-flex justify-content-center">
                     @csrf
                     <input type="text" class="font-weight-bold form-control col-2 col-md-3" id="searchMin" name="searchMin" placeholder="Min.." maxlength="8">
                     <input type="text" class="font-weight-bold form-control col-2 col-md-3" id="searchMax" name="searchMax" placeholder="Max.." maxlength="8">
@@ -30,17 +30,9 @@
         <div class="row">
             <div class="col-md-3 paginationText mb-2">
                 Results on page:
-                <a href="#" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="#" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="#" class="paginationLinks">100</a>
-                {{--                <form action="{{ route('pagination') }}">--}}
-                {{--                    <select class="custom-select col-md-3" onchange="location = this.value">--}}
-                {{--                        <option selected>10</option>--}}
-                {{--                        <option value="/hiking?25">25</option>--}}
-                {{--                        <option value="/hiking?50">50</option>--}}
-                {{--                        <option value="/hiking?all">All</option>--}}
-                {{--                    </select>--}}
-                {{--                </form>--}}
+                <a href="{{ route('search') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
+                <a href="{{ route('search') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
+                <a href="{{ route('search') }}?perPage=100" class="paginationLinks">100</a>
             </div>
         </div>
         <div class="row">
@@ -114,25 +106,20 @@
         <div class="row mb-3 mb-md-0">
             <div class="col-md-3 paginationText">
                 Results on page:
-                <a href="#" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="#" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="#" class="paginationLinks">100</a>
-                {{--                <form action="{{ route('pagination') }}">--}}
-                {{--                    <select class="custom-select col-md-3" onchange="location = this.value">--}}
-                {{--                        <option selected>10</option>--}}
-                {{--                        <option value="/hiking?25">25</option>--}}
-                {{--                        <option value="/hiking?50">50</option>--}}
-                {{--                        <option value="/hiking?all">All</option>--}}
-                {{--                    </select>--}}
-                {{--                </form>--}}
+                <a href="{{ route('search') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
+                <a href="{{ route('search') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
+                <a href="{{ route('search') }}?perPage=100" class="paginationLinks">100</a>
             </div>
-            <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">
-                {{ $hikes->links() }}
-            </div>
+            @if(Route::current()->getName() == 'hikes')
+                <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">
+                    {{ $hikes->links() }}
+                </div>
+            @endif
         </div>
     </div>
 {{--    script for choosing how many search result on the page--}}
 
 {{--    script for clickable row in table--}}
     <script src="{{ asset('js/editHikes.js') }}" defer></script>
+
 @endsection

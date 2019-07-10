@@ -13,9 +13,11 @@ class HikeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $hikes = Hike::orderBy('id', 'desc')->paginate(15);
+        $perPage = $request->get('perPage');
+
+        $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
         return view('hikes', compact('hikes'));
     }
 
@@ -112,43 +114,50 @@ class HikeController extends Controller
         return redirect('/hikes')->with('success', 'Hike is successfully deleted');
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        $min = $_GET['searchMin'];
-        $max = $_GET['searchMax'];
-        $column = $_GET['searchCol'];
+        $perPage = $request->get('perPage');
+        $min = $_POST['searchMin'];
+        $max = $_POST['searchMax'];
+        $column = $_POST['searchCol'];
         $message = '';
 
-        if($min > $max){
-            $min = $_GET['searchMax'];
-            $max = $_GET['searchMin'];
+        if(empty($min) && empty($max) && empty($column)){
+            $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
         }
-
-        if($column !== 'Choose..') {
-            if (empty($min) && empty($max)){
-                $message = 'Fill in data to search';
-                $hikes = Hike::orderBy('id', 'desc')->paginate(15);
+        else {
+            if ($min > $max) {
+                $min = $_POST['searchMax'];
+                $max = $_POST['searchMin'];
             }
-            elseif (!empty($min) && !empty($max)) {
-                $hikes = Hike::whereBetween($column, [$min, $max])
-                    ->orderBy('id', 'desc')->get();
-            } elseif (empty($min) || empty($max)) {
-                if (empty($min)) {
-                    $min = $max;
-                    $hikes = Hike::where($column, '=', $min)
+//            if statement to check if a column is selected
+            if ($column !== 'Choose..') {
+//            if min and max are empty display error message
+                if (empty($min) && empty($max)) {
+                    $message = 'Fill in data to search';
+                    $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
+                } //            if min and max are filled in, search the correct column between min and max values
+                elseif (!empty($min) && !empty($max)) {
+                    $hikes = Hike::whereBetween($column, [$min, $max])
                         ->orderBy('id', 'desc')->get();
-                } else {
-                    $max = $min;
-                    $hikes = Hike::where($column, '=', $max)
-                        ->orderBy('id', 'desc')->get();
+                } //            if min or max is empty
+                elseif (empty($min) || empty($max)) {
+//                if min is empty, only use max to search
+                    if (empty($min)) {
+                        $hikes = Hike::where($column, '=', $max)
+                            ->orderBy('id', 'desc')->get();
+                    } //                if max is empty, only use min to search
+                    else {
+                        $hikes = Hike::where($column, '=', $min)
+                            ->orderBy('id', 'desc')->get();
+                    }
                 }
+            } //        if no column is selected
+            else {
+                $message = 'Make a choice in the dropdown menu';
+                $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
             }
         }
-        else{
-            $message = 'Make a choice in the dropdown menu';
-            $hikes = Hike::orderBy('id', 'desc')->paginate(15);
-        }
-
-        return view('search', compact('hikes', 'message'));
+        return view('hikes', compact('hikes', 'message'));
     }
 }
