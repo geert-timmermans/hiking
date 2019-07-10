@@ -4,7 +4,7 @@
 @section('body_class', 'body_hikes')
 
 @section('content')
-    <div class="container mt-mb-4">
+    <div class="container my-4">
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
                 @if(isset($message))
