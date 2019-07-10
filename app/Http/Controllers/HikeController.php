@@ -15,7 +15,8 @@ class HikeController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->get('perPage');
+
+        $perPage = $request->session()->get('perPage');
 
         $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
         return view('hikes', compact('hikes'));
@@ -116,7 +117,8 @@ class HikeController extends Controller
 
     public function search(Request $request)
     {
-        $perPage = $request->get('perPage');
+        $perPage = $request->session()->get('perPage');
+
         $min = $_POST['searchMin'];
         $max = $_POST['searchMax'];
         $column = $_POST['searchCol'];
@@ -139,17 +141,17 @@ class HikeController extends Controller
                 } //            if min and max are filled in, search the correct column between min and max values
                 elseif (!empty($min) && !empty($max)) {
                     $hikes = Hike::whereBetween($column, [$min, $max])
-                        ->orderBy('id', 'desc')->get();
+                        ->orderBy('id', 'desc')->paginate($perPage);
                 } //            if min or max is empty
                 elseif (empty($min) || empty($max)) {
 //                if min is empty, only use max to search
                     if (empty($min)) {
                         $hikes = Hike::where($column, '=', $max)
-                            ->orderBy('id', 'desc')->get();
+                            ->orderBy('id', 'desc')->paginate($perPage);
                     } //                if max is empty, only use min to search
                     else {
                         $hikes = Hike::where($column, '=', $min)
-                            ->orderBy('id', 'desc')->get();
+                            ->orderBy('id', 'desc')->paginate($perPage)();
                     }
                 }
             } //        if no column is selected
@@ -159,5 +161,15 @@ class HikeController extends Controller
             }
         }
         return view('hikes', compact('hikes', 'message'));
+    }
+
+    public function perPage(Request $request){
+
+        $perPage = request()->perPage;
+        $request->session()->put('perPage', $perPage);
+
+        $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
+
+        return view('hikes', compact('hikes'));
     }
 }

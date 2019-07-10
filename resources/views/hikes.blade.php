@@ -35,9 +35,9 @@
         <div class="row">
             <div class="col-md-3 paginationText mb-2">
                 Results on page:
-                <a href="{{ route('search') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="{{ route('search') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="{{ route('search') }}?perPage=100" class="paginationLinks">100</a>
+                <a href="{{ route('perPage') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
+                <a href="{{ route('perPage') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
+                <a href="{{ route('perPage') }}?perPage=100" class="paginationLinks">100</a>
             </div>
         </div>
         <div class="row">
@@ -111,15 +111,15 @@
         <div class="row mb-3 mb-md-0">
             <div class="col-md-3 paginationText">
                 Results on page:
-                <a href="{{ route('search') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="{{ route('search') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="{{ route('search') }}?perPage=100" class="paginationLinks">100</a>
+                <a href="{{ route('perPage') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
+                <a href="{{ route('perPage') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
+                <a href="{{ route('perPage') }}?perPage=100" class="paginationLinks">100</a>
             </div>
-            @if(Route::current()->getName() == 'hikes')
+{{--            @if(Route::current()->getName() == 'hikes' || Route::current()->getName() == 'perPage')--}}
                 <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">
                     {{ $hikes->links() }}
                 </div>
-            @endif
+{{--            @endif--}}
         </div>
     </div>
 {{--    script for choosing how many search result on the page--}}
