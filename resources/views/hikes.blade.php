@@ -7,6 +7,11 @@
     <div class="container mt-mb-4">
         <div class="row my-3">
             <div class="col-12 col-md-4 offset-md-8 my-md-4">
+                @if(isset($message))
+                    <div class="text-danger bg-warning text-center font-weight-bold mb-2 w-100">{!! $message !!}</div>
+                @else
+                    <br>
+                @endif
                 <form action="{{ route('search') }}" method="post" class="input-group d-flex justify-content-center">
                     @csrf
                     <input type="text" class="font-weight-bold form-control col-2 col-md-3" id="searchMin" name="searchMin" placeholder="Min.." maxlength="8">
