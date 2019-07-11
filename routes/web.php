@@ -27,7 +27,7 @@ Route::get('/hikes/results', 'HikeController@perPage')->name('perPage');
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/profile/edit', 'UserController@edit')->name('editProfile');
-    Route::post('/editProfile', 'UserController@update')->name('editProfilePost');
+    Route::post('/profile/edit', 'UserController@update')->name('editProfilePost');
 
     Route::get('/hike/create', 'HikeController@create')->name('createHike');
     Route::post('/createHike', 'HikeController@store')->name('createHikePost');

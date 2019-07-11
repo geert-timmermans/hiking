@@ -6,7 +6,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <form class="form mt-4 col-10 offset-1 col-md-8 offset-md-2" action="" method="post" id="editProfileForm">
+        <form class="form mt-4 col-10 offset-1 col-md-8 offset-md-2" action="{{ route('editProfilePost') }}" method="post" id="editProfileForm">
             @csrf
 
             <div class="form-group">
