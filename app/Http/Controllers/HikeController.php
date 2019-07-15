@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hike;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class HikeController extends Controller
@@ -17,16 +18,14 @@ class HikeController extends Controller
     {
 
         $perPage = $request->session()->get('perPage');
-
-        $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
+        if (!Auth::user()){
+            $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
+        }
+        else{
+            $user = User::find(Auth::user()->id);
+            $hikes = $user->hikes;
+        }
         return view('hikes', compact('hikes'));
-    }
-
-    public function test()
-    {
-        $hikes = Hike::find(1);
-        $users = $hikes->user;
-        return view('hikes', compact('users'));
     }
 
     /**
