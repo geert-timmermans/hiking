@@ -22,6 +22,12 @@ class HikeController extends Controller
         return view('hikes', compact('hikes'));
     }
 
+    public function test()
+    {
+        $hikes = Hike::find(1);
+        $users = $hikes->user;
+        return view('hikes', compact('users'));
+    }
 
     /**
      * Show the form for creating a new resource.

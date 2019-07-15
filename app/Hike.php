@@ -9,4 +9,9 @@ class Hike extends Model
     protected $fillable = [
         'duration', 'distance', 'avg_speed', 'kcal', 'steps', 'week', 'month', 'date',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
