@@ -46,17 +46,22 @@ class HikeController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'duration' => 'required',
-            'distance' => 'required | numeric',
-            'avg_speed' => 'required | numeric',
-            'kcal' => 'required | numeric',
-            'steps' => 'required',
-            'week' => 'required | numeric',
-            'month' => 'required | numeric',
-            'date' => 'required',
-        ]);
-        $hike = Hike::create($validateData);
+//        $hike = new Hike;
+//        $validateData = $request->validate([
+//            'duration' => 'required',
+//            'distance' => 'required | numeric',
+//            'avg_speed' => 'required | numeric',
+//            'kcal' => 'required | numeric',
+//            'steps' => 'required',
+//            'week' => 'required | numeric',
+//            'month' => 'required | numeric',
+//            'date' => 'required',
+//        ]);
+//        $hike->user_id = Auth::user()->id;
+//        $hike = Hike::create($validateData);
+        $hike = new Hike($request->all());
+        $hike->user_id = Auth::user()->id;
+        $hike->save();
 
         return redirect('/hikes')->with('success', 'Hike has been added');
     }

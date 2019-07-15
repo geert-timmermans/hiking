@@ -40,6 +40,6 @@ class User extends Authenticatable
 
     public function hikes()
     {
-        return $this->hasMany(Hike::class);
+        return $this->hasMany('App\Hike');
     }
 }
