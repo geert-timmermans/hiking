@@ -23,7 +23,7 @@ class HikeController extends Controller
         }
         else{
             $user = User::find(Auth::user()->id);
-            $hikes = $user->hikes()->paginate($perPage);
+            $hikes = $user->hikes()->orderBy('id', 'desc')->paginate($perPage);
         }
         return view('hikes', compact('hikes'));
     }
