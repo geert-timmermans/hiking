@@ -117,7 +117,7 @@
             </div>
 {{--            @if(Route::current()->getName() == 'hikes' || Route::current()->getName() == 'perPage')--}}
                 <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">
-{{--                    {{ $hikes->links() }}--}}
+                    {{ $hikes->links() }}
                 </div>
 {{--            @endif--}}
         </div>

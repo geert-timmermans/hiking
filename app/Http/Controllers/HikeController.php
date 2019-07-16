@@ -23,7 +23,7 @@ class HikeController extends Controller
         }
         else{
             $user = User::find(Auth::user()->id);
-            $hikes = $user->hikes;
+            $hikes = $user->hikes()->paginate($perPage);
         }
         return view('hikes', compact('hikes'));
     }
@@ -46,7 +46,6 @@ class HikeController extends Controller
      */
     public function store(Request $request)
     {
-//        $hike = new Hike;
 //        $validateData = $request->validate([
 //            'duration' => 'required',
 //            'distance' => 'required | numeric',
@@ -59,7 +58,16 @@ class HikeController extends Controller
 //        ]);
 //        $hike->user_id = Auth::user()->id;
 //        $hike = Hike::create($validateData);
-        $hike = new Hike($request->all());
+        $hike = new Hike($request->validate([
+            'duration' => 'required',
+            'distance' => 'required | numeric',
+            'avg_speed' => 'required | numeric',
+            'kcal' => 'required | numeric',
+            'steps' => 'required',
+            'week' => 'required | numeric',
+            'month' => 'required | numeric',
+            'date' => 'required',
+        ]));
         $hike->user_id = Auth::user()->id;
         $hike->save();
 
