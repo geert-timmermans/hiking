@@ -145,24 +145,26 @@ class HikeController extends Controller
                     $message = 'Fill in data to search';
                     $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
                 }
-                //            if min and max are filled in, search the correct column between min and max values
+//            if min and max are filled in, search the correct column between min and max values
                 elseif (!empty($min) && !empty($max)) {
                     $hikes = Hike::whereBetween($column, [$min, $max])
                         ->orderBy('id', 'desc')->paginate($perPage);
                 }
-                //            if min or max is empty
+//            if min or max is empty
                 elseif (empty($min) || empty($max)) {
 //                if min is empty, only use max to search
                     if (empty($min)) {
                         $hikes = Hike::where($column, '=', $max)
                             ->orderBy('id', 'desc')->paginate($perPage);
-                    } //                if max is empty, only use min to search
+                    }
+//                if max is empty, only use min to search
                     else {
                         $hikes = Hike::where($column, '=', $min)
                             ->orderBy('id', 'desc')->paginate($perPage)();
                     }
                 }
-            } //        if no column is selected
+            }
+//        if no column is selected
             else {
                 $message = 'Make a choice in the dropdown menu';
                 $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
@@ -183,7 +185,7 @@ class HikeController extends Controller
 
         }
 
-        $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
+        $hikes = Hike::gethikes()->orderBy('id', 'desc')->paginate($perPage);
 
         return view('hikes', compact('hikes'));
     }

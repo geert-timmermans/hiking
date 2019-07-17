@@ -36,9 +36,9 @@
             <div class="col-md-3 paginationText mb-2">
                 <form action="{{ route('perPage') }}" method="get">
                     Results on page:
-                    <input type="submit" class="paginationLinks paginationLinksBorder" name="test" value="25">
-                    <input type="submit" class="paginationLinks paginationLinksBorder" name="test" value="50">
-                    <input type="submit" class="paginationLinks" name="test" value="100">
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="resultsPerPage" value="25">
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="resultsPerPage" value="50">
+                    <input type="submit" class="paginationLinks" name="resultsPerPage" value="100">
                 </form>
             </div>
         </div>
