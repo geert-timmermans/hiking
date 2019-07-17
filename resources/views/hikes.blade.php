@@ -34,10 +34,12 @@
         </div>
         <div class="row">
             <div class="col-md-3 paginationText mb-2">
-                Results on page:
-                <a href="{{ route('perPage') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="{{ route('perPage') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="{{ route('perPage') }}?perPage=100" class="paginationLinks">100</a>
+                <form action="{{ route('perPage') }}" method="get">
+                    Results on page:
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="test" value="25">
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="test" value="50">
+                    <input type="submit" class="paginationLinks" name="test" value="100">
+                </form>
             </div>
         </div>
         <div class="row">
@@ -110,10 +112,12 @@
         </div>
         <div class="row mb-3 mb-md-0">
             <div class="col-md-3 paginationText">
-                Results on page:
-                <a href="{{ route('perPage') }}?perPage=25" class="paginationLinks paginationLinksBorder">25</a>
-                <a href="{{ route('perPage') }}?perPage=50" class="paginationLinks paginationLinksBorder">50</a>
-                <a href="{{ route('perPage') }}?perPage=100" class="paginationLinks">100</a>
+                <form action="{{ route('perPage') }}" method="get">
+                    Results on page:
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="resultsPerPage" value="25">
+                    <input type="submit" class="paginationLinks paginationLinksBorder" name="resultsPerPage" value="50">
+                    <input type="submit" class="paginationLinks" name="resultsPerPage" value="100">
+                </form>
             </div>
 {{--            @if(Route::current()->getName() == 'hikes' || Route::current()->getName() == 'perPage')--}}
                 <div class="col-12 d-flex justify-content-center mt-3 mt-md-0">

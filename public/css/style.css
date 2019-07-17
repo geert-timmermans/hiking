@@ -49,10 +49,12 @@ body #app nav .container a{
 }
 .paginationText, .paginationLinks, .paginationLinksBorder{
     text-decoration: none;
+    background: none;
+    border: none;
     color: white;
 }
 .paginationLinksBorder{
-    padding-right: 2px;
+
     border-right: 1px solid darkgrey;
 }
 

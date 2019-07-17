@@ -46,18 +46,6 @@ class HikeController extends Controller
      */
     public function store(Request $request)
     {
-//        $validateData = $request->validate([
-//            'duration' => 'required',
-//            'distance' => 'required | numeric',
-//            'avg_speed' => 'required | numeric',
-//            'kcal' => 'required | numeric',
-//            'steps' => 'required',
-//            'week' => 'required | numeric',
-//            'month' => 'required | numeric',
-//            'date' => 'required',
-//        ]);
-//        $hike->user_id = Auth::user()->id;
-//        $hike = Hike::create($validateData);
         $hike = new Hike($request->validate([
             'duration' => 'required',
             'distance' => 'required | numeric',
@@ -137,9 +125,9 @@ class HikeController extends Controller
     {
         $perPage = $request->session()->get('perPage');
 
-        $min = $_POST['searchMin'];
-        $max = $_POST['searchMax'];
-        $column = $_POST['searchCol'];
+        $min = $request->input('searchMin');
+        $max = $request->input('searchMax');
+        $column = $request->input('searchCol');
         $message = '';
 
         if(empty($min) && empty($max) && empty($column)){
@@ -147,8 +135,8 @@ class HikeController extends Controller
         }
         else {
             if ($min > $max) {
-                $min = $_POST['searchMax'];
-                $max = $_POST['searchMin'];
+                $min = $request->input('searchMax');
+                $max = $request->input('searchMin');
             }
 //            if statement to check if a column is selected
             if ($column !== 'Choose..') {
@@ -156,11 +144,13 @@ class HikeController extends Controller
                 if (empty($min) && empty($max)) {
                     $message = 'Fill in data to search';
                     $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
-                } //            if min and max are filled in, search the correct column between min and max values
+                }
+                //            if min and max are filled in, search the correct column between min and max values
                 elseif (!empty($min) && !empty($max)) {
                     $hikes = Hike::whereBetween($column, [$min, $max])
                         ->orderBy('id', 'desc')->paginate($perPage);
-                } //            if min or max is empty
+                }
+                //            if min or max is empty
                 elseif (empty($min) || empty($max)) {
 //                if min is empty, only use max to search
                     if (empty($min)) {
@@ -182,9 +172,16 @@ class HikeController extends Controller
     }
 
     public function perPage(Request $request){
+        $resultsPerPage = request()->resultsPerPage;
+        // use if isset of has in laravel to check if perPage is empty or not
+        if(isset($resultsPerPage)){
+            $perPage = $resultsPerPage;
+            $request->session()->put('perPage', $perPage);
+        }
+        else{
+            $perPage = $request->session()->get('perPage');
 
-        $perPage = request()->perPage;
-        $request->session()->put('perPage', $perPage);
+        }
 
         $hikes = Hike::orderBy('id', 'desc')->paginate($perPage);
 
